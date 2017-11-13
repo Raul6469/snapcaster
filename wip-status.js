@@ -2,27 +2,22 @@ var request = require('request')
 
 module.exports = {
     wipStatus: function(pr) {
-        request({
-            har: {
-              url: pr.pull_request.url + '/statuses/' + pr.pull_request.head.sha,
-              method: 'POST',
-              headers: [
-                {
-                  name: 'content-type',
-                  value: 'application/application-json'
-                }
-              ],
-              postData: {
-                mimeType: 'application/applicatio-json',
-                params: [
-                  {
-                    "state": "success",
-                    "description": "Ready to be merged",
-                    "context": "continuous-integration/snapcaster"
-                  }
-                ]
-              }
-            }
-          })  
+        var data = new Object()
+        data.state = 'success'
+        data.target_url = 'https://www.github.com/Raul6469'
+        data.description = 'Ready to be merged!'
+        data.context = 'continuous-integration/snapcaster'
+
+        var dataJson = JSON.stringify(data)
+
+        var myHeaders = Object()
+        myHeaders['User-Agent'] = 'Raul6469'
+        myHeaders.Authorization = 'token ' + process.env.GITHUB_OAUTH_TOKEN
+
+        var apiurl = pr.pull_request.head.repo.url + '/statuses/' + pr.pull_request.head.sha
+        
+        request.post({url: apiurl, form: dataJson, headers: myHeaders}, function(err, httpResponse, body){
+            console.log(body);
+        })
     }
 };
