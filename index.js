@@ -1,4 +1,5 @@
 var express = require('express');
+var wip = require('./wip-status')
 var app = express();
 
 var bodyParser = require('body-parser')
@@ -26,9 +27,11 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(request, response) {
-
-  if((request.body.action === "opened" || request.body.action === "reopened") && "pull_request" in request.body) {
+  webhook = Object()
+  webhook = request.body
+  if((webhook.action === "opened" || webhook.action === "reopened") && "pull_request" in webhook) {
     response.end("this is a pr")
+    wip.wipStatus(webhook)
   }
   else {
     response.end("not a pr")
