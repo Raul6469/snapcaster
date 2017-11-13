@@ -4,7 +4,7 @@ module.exports = {
     wipStatus: function(pr) {
         request({
             har: {
-              url: pr.url + '/statuses/' + pr.pull_request.head.sha,
+              url: pr.pull_request.url + '/statuses/' + pr.pull_request.head.sha,
               method: 'POST',
               headers: [
                 {
