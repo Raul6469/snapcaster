@@ -26,11 +26,14 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(request, response) {
-  var res = new Object();
-  res.message = "POST received"
-  res.post = request.body
-  response.setHeader('Content-Type', 'application/json')
-  response.end(JSON.stringify(res))
+
+  if((request.body.action === "opened" || request.body.action === "reopened") && "pull_request" in request.body) {
+    response.end("this is a pr")
+  }
+  else {
+    response.end("not a pr")
+  }
+
 });
 
 app.listen(app.get('port'), function() {
