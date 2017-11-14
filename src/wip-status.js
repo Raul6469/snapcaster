@@ -19,10 +19,15 @@ function wipSuccess(pr) {
     var myHeaders = Object()
     myHeaders['User-Agent'] = 'Raul6469'
     myHeaders.Authorization = 'token ' + process.env.GITHUB_OAUTH_TOKEN
-
-    var apiurl = pr.pull_request.head.repo.url + '/statuses/' + pr.pull_request.head.sha
     
+    if(process.env.NODE_ENV === 'test') {
+        var apiurl = "localhost:5000"
+    }
+    else {
+        var apiurl = pr.pull_request.head.repo.url + '/statuses/' + pr.pull_request.head.sha
+    }
+
     request.post({url: apiurl, form: dataJson, headers: myHeaders}, function(err, httpResponse, body){
         console.log(body);
-    })
+    })    
 }
