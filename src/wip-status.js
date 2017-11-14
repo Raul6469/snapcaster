@@ -11,7 +11,7 @@ function wipSuccess(pr) {
     var data = new Object()
     data.state = 'success'
     data.target_url = 'https://www.github.com/Raul6469'
-    data.description = 'Ready to be merged!'
+    data.description = 'Ready to be merged'
     data.context = 'continuous-integration/snapcaster'
 
     var dataJson = JSON.stringify(data)
