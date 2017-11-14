@@ -1,5 +1,5 @@
 var express = require('express');
-var wip = require('./wip-status')
+var wip = require('./src/wip-status')
 var app = express();
 
 var bodyParser = require('body-parser')
