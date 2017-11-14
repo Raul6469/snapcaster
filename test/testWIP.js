@@ -19,7 +19,6 @@ describe('WIP pull request status', function () {
             .send(webhook)
             .end((err, res) => {
                 res.should.have.status(200)
-                console.log(res)
                 res.text.should.equals('this is a pr')
                 done()
             })
