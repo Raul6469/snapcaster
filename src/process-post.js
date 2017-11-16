@@ -23,9 +23,7 @@ function postResponse(webhook) {
 
     if(process.env.NODE_ENV === 'production') {
         request.post({url: webhook.url, form: webhook.body, headers: myHeaders}, function(err, httpResponse, body){
-            if(process.env.NODE_ENV === 'dev') {
-                console.log(body);
-            }
+            
         })
     }
 }
