@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
   response.end("GET received")
 });
 
-app.post('/', function(request, response) {
+app.post('/api', function(request, response) {
   snapcaster.processPost(request, response)
 });
 

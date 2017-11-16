@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 describe('WIP pull request status', function () {
         it("should set a success status when PR is opened", (done) => {
             chai.request(server)
-            .post('/')
+            .post('/api')
             .send(webhook)
             .end((err, res) => {
                 res.should.have.status(200)
