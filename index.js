@@ -30,6 +30,7 @@ app.post('/api', function(request, response) {
 });
 
 app.listen(app.get('port'), function() {
+  console.log('NODE_ENV: ' + process.env.NODE_ENV + '\n')
   if(process.env.NODE_ENV === 'dev') {
     console.log('Node app is running on port', app.get('port'));
   }
