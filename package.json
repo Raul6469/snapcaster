@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "mocha --exit",
-    "coverage": "nyc report --reporter=text-lcov",
-    "coverage-codecov": "nyc report --reporter=text-lcov && codecov"
+    "coverage": "nyc mocha --exit",
+    "codecov": "nyc report --reporter=text-lcov && codecov"
   },
   "author": "",
   "license": "MIT",
