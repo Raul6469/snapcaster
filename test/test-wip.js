@@ -63,7 +63,6 @@ describe('WIP pull request status', function () {
             response.should.have.property("body")
 
             response.body.should.have.property("state")
-            response.body.should.have.property("target_url")
             response.body.should.have.property("description")
             response.body.should.have.property("context")
 

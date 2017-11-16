@@ -7,7 +7,6 @@ module.exports = {
         webhook.body = new Object()
 
         webhook.body.state = 'success'
-        webhook.body.target_url = 'https://www.github.com/Raul6469'
         webhook.body.description = 'Ready to be merged'
         webhook.body.context = 'continuous-integration/snapcaster'
         
