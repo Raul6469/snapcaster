@@ -28,6 +28,8 @@ function wipSuccess(pr) {
     }
 
     request.post({url: apiurl, form: dataJson, headers: myHeaders}, function(err, httpResponse, body){
-        console.log(body);
+        if(process.env.NODE_ENV === 'dev') {
+            console.log(body);
+        }
     })    
 }

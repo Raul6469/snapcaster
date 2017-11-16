@@ -42,5 +42,7 @@ app.post('/', function(request, response) {
 });
 
 app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+  if(process.env.NODE_ENV === 'dev') {
+    console.log('Node app is running on port', app.get('port'));
+  }
 });
