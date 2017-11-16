@@ -7,10 +7,7 @@ install:
   - npm install
 
 script:
-  - npm run coverage
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - npm run coverage-codecov
 
 notifications:
   email: false
