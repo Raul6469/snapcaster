@@ -21,9 +21,11 @@ function postResponse(webhook) {
     myHeaders['User-Agent'] = 'Raul6469'
     myHeaders.Authorization = 'token ' + process.env.GITHUB_OAUTH_TOKEN
 
+    var body = JSON.stringify(webhook.body)
+
     if(process.env.NODE_ENV === 'production') {
-        request.post({url: webhook.url, form: webhook.body, headers: myHeaders}, function(err, httpResponse, body){
-            
+        request.post({url: webhook.url, form: body, headers: myHeaders}, function(err, httpResponse, body){
+            console.log(httpResponse)
         })
     }
 }
