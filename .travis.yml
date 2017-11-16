@@ -10,7 +10,7 @@ script:
   - npm run coverage
 
 after_success:
-  - npm run codecov
+  - npm run coveralls
 
 notifications:
   email: false
