@@ -1,4 +1,6 @@
 var wip = require('./wip-status')
+var request = require('request')
+require('dotenv').config();
 
 module.exports = {
     processPost: function(request, response) {
@@ -15,5 +17,13 @@ module.exports = {
 };
 
 function postResponse(webhook) {
+    var myHeaders = Object()
+    myHeaders['User-Agent'] = 'Raul6469'
+    myHeaders.Authorization = 'token ' + process.env.GITHUB_OAUTH_TOKEN
 
+    request.post({url: webhook.url, form: webhook.body, headers: myHeaders}, function(err, httpResponse, body){
+        if(process.env.NODE_ENV === 'dev') {
+            console.log(body);
+        }
+    })
 }
