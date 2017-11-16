@@ -5,7 +5,7 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 
 let fs = require('fs')
-let content = fs.readFileSync('test/test1.json')
+let content = fs.readFileSync('test/open-pr.json')
 let webhook = JSON.parse(content)
 
 let server = require('../index.js')
