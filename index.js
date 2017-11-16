@@ -1,6 +1,7 @@
 var express = require('express');
-var wip = require('./src/wip-status')
 var app = express();
+
+var snapcaster = require('./src/process-post')
 
 module.exports = app
 
@@ -14,10 +15,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -29,16 +26,7 @@ app.get('/', function(request, response) {
 });
 
 app.post('/', function(request, response) {
-  webhook = Object()
-  webhook = request.body
-  if((webhook.action === "opened" || webhook.action === "reopened") && "pull_request" in webhook) {
-    response.end("this is a pr")
-    wip.wipStatus(webhook)
-  }
-  else {
-    response.end("not a pr")
-  }
-
+  snapcaster.processPost(request, response)
 });
 
 app.listen(app.get('port'), function() {
