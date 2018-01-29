@@ -1,3 +1,5 @@
+_And then I discovered Probot, so check the new GitHub app project, [wolfreview](https://github.com/Raul6469/wolfreview)! Snapcaster is abandoned..._
+
 # snapcaster
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Raul6469/snapcaster.svg)](https://greenkeeper.io/)
