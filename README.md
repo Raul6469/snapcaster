@@ -1,4 +1,4 @@
-_And then I discovered Probot, so check the new GitHub app project, [wolfreview](https://github.com/Raul6469/wolfreview)! Snapcaster is abandoned..._
+_And then I discovered Probot, so check the new GitHub app project, [self-approve](https://github.com/Raul6469/self-approve)! Snapcaster is abandoned..._
 
 # snapcaster
 
